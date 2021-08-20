@@ -12,22 +12,18 @@ isNaN(userInputNum) ? alert('Вы ввели не число!') : console.log(ge
 
 // ========== 2 ==========
 const arr = [3, 5, 12, 9, 23, 93, 17]
-console.log(arr.reduce((acc, el) => {
+const sumOfFiltredArr = arr.reduce((acc, el) => {
     return el > 2 && el < 20 ? acc + el : acc
-}, 0))
-//console.log(arr.filter(el => el > 2 && el < 20).reduce((acc, el) => acc + el, 0))
+}, 0)
+console.log(sumOfFiltredArr)
 
 
 // ========== 3 ==========
 const array = [[1, 6, 3, '6'], [10, 15, 13, '10']]
-console.log(array.reduce((acc, subArrSum) => acc + subArrSum.reduce((acc, el) => {
+const sumOfFiltredArray = array.flat().reduce((acc, el) => {
     return typeof el === 'number' ? acc + el : acc
-}, 0), 0))
-/*
-console.log(array.flat().reduce((acc, el) => {
-    return typeof el === 'number' ? acc + el : acc
-}, 0))
-*/
+}, 0)
+console.log(sumOfFiltredArray)
 
 
 // ========== 4 ==========
