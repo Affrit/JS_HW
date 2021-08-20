@@ -11,7 +11,7 @@ console.log(newArr)
 
 // ===== HW3 =====
 const hello2 = name => {
-    return typeof name === 'undefined' ? 'Привет, гость' : `Привет, ${name}`
+    return !name ? 'Привет, гость' : `Привет, ${name}`
 }
 
 console.log(hello2())
@@ -50,7 +50,7 @@ console.log(numberArray)
 
 // ===== HW8 =====
 const arrayTesting = arr => {
-    return arr.some(el => !!el === true) ? 'Нашли true значение' : 'Ничего нет'
+    return arr.some(el => el) ? 'Нашли true значение' : 'Ничего нет'
 }
 
 const haveTrueValue = arrayTesting([0, false, null, 1])
