@@ -113,8 +113,8 @@ const group = [
 ]
 
 function getStudentsList(arrayOfStudents) {
+  
     arrayOfStudents.forEach(obj => {
-
         obj.toString = function() {
             const name = this.name
             const lastName = this.lastName
