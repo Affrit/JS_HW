@@ -3,10 +3,9 @@ const img = document.getElementById('img')
 
 const p = document.createElement('p')
 p.innerText = 'Click here to see img'
-
 document.body.prepend(p)
 
-const onPClicked = () => {
+const onTextClicked = () => {
     img.setAttribute('class', 'img')
     p.setAttribute('class', 'invisible')
 }
@@ -16,13 +15,13 @@ const onImgCliked = () => {
     p.setAttribute('class', 'visible')
 }
 
-p.addEventListener('click', onPClicked)
+p.addEventListener('click', onTextClicked)
 img.addEventListener('click', onImgCliked)
 
 // ========== 2 ==========
 const array = [1, 2, 3, 0, 4, 5, 6]
 
-const getSumBeforeZero = arr => {
+const getSumOfLastBeforeZero = arr => {
     let sum = 0
     for (let i = arr.length - 1; i >= 0; i--) {
         if (arr[i] === 0) break
@@ -32,23 +31,11 @@ const getSumBeforeZero = arr => {
     return sum
 }
 
-const result = getSumBeforeZero(array)
+const result = getSumOfLastBeforeZero(array)
 console.log(result)
 
 
 // ========== 3 ==========
-/*
-const getCountOfElem = arr => {
-    let countOfElem = 0
-    arr.reduce((acc, el) => {
-        acc > 10 ? '' : countOfElem += 1
-        return acc + el
-    }, 0)
-
-    return countOfElem
-}
-*/
-
 const getCountOfElem = arr => {
     let countOfElem = 0
     let sumOfArr = 0
@@ -112,9 +99,6 @@ const onStartBtnClicked = () => {
     if (inputPx.value > 600 || inputPx.value < 0) {
         inputPx.value = 'ERROR'
     } else {
-        //const style = document.createElement('style')
-        //const styleElem = document.head.appendChild(style)
-        //styleElem.innerHTML = `.span:after {left: ${inputPx.value}px;}`
         circle.style.marginLeft = `${inputPx.value}px`
     }
 }
