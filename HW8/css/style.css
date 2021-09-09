@@ -1,0 +1,60 @@
+* {
+    margin-bottom: 10px;
+}
+
+.img {
+    display: block;
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.img:hover {
+    width: 200px;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}
+
+.startBtn {
+    background: burlywood;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 7px 15px;
+    font-size: 18px;
+}
+
+.inputPx {
+    font-size: 18px;
+    padding: 5px 5px;
+}
+
+.span {
+    padding-top: 20px;
+    display: block;
+    position: relative;
+    transition: all 1s;
+}
+
+.span:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: red;
+    transition: all 1s;
+}
+
+#span {
+    display: block;
+}
