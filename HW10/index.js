@@ -28,23 +28,14 @@ const createDescription = () => {
     insertDescriptionElement('contributed_by: ', item.contributed_by, description)
     insertDescriptionElement('description: ', item.description, description)
     insertDescriptionElement('ph: ', item.ph, description)
-    
+
     return description
 }
 
-async function showContent() {
-    const response = await getDataFromServer()
-    
-    for (item of response) {
-        const contentBlock = createElement('div', 'class', `contentBlock`)
-        const img = createElement('img', 'src', `${item.image_url}`)
-        img.setAttribute('id', item.id) // id from server
-        const description = createDescription()
-
-        contentBlock.append(img)
-        contentBlock.append(description)
-        content.append(contentBlock)
-    }
+const showError = (error) => {
+    const errorText = createElement('span', 'class', 'error')
+    errorText.innerText = `${error} :-(`
+    content.append(errorText)
 }
 
 async function getDataFromServer() {
@@ -57,10 +48,27 @@ async function getDataFromServer() {
 
         return response
 
-    } catch(error) {
-        const errorText = createElement('span', 'class', 'error')
-        errorText.innerText = `${error} :-(`
-        content.append(errorText)
+    } catch (error) {
+        showError(error)
+    }
+}
+
+async function showContent() {
+    try {
+        const response = await getDataFromServer()
+
+        for (item of response) {
+            const contentBlock = createElement('div', 'class', `contentBlock`)
+            const img = createElement('img', 'src', `${item.image_url}`)
+            img.setAttribute('id', item.id) // id from server
+            const description = createDescription()
+
+            contentBlock.append(img)
+            contentBlock.append(description)
+            content.append(contentBlock)
+        }
+    } catch (error) {
+        showError(error)
     }
 }
 
@@ -68,7 +76,10 @@ showContent()
 
 const onImgClicked = ({ target }) => {
     if (target.tagName === 'IMG') {
-        localStorage.setItem('clickedElementId', target.id);
+        localStorage.setItem('clickedElementId', target.id) // this id is from server
+
+        const clickedElementId = localStorage.getItem('clickedElementId')
+        console.log(clickedElementId)
     }
 }
 
