@@ -1,0 +1,28 @@
+.visible {
+    display: inline-block;
+}
+
+.invisible {
+    display: none;
+}
+
+span {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+}
+
+.timer__item {
+    padding: 10px;
+}
+
+[id="textarea"] {
+    margin-top: 50px;
+    width: 300px;
+    resize: none;
+    padding: 10px;
+}
